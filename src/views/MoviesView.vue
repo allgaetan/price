@@ -10,7 +10,6 @@
             <p class="date">{{ movie.date }}</p>
             <p class="director">{{ movie.director }}</p>
             <p class="runtime">{{ movie.runtime }} min</p>
-            <p class="plot">{{ movie.plot }}</p>
         </div>
     </div>
 </div>
@@ -25,7 +24,7 @@
     width: 240px;
     height: 330px;
     background-color: aliceblue;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 15px 35px black;
     overflow: hidden;
     display: inline-block;
@@ -63,7 +62,7 @@
 .card .details {
     position: absolute;
     width: 100%;
-    bottom: -100px;
+    bottom: -57px;
     left: 0;
     padding: 20px;
     z-index: 2;
@@ -95,7 +94,7 @@ export default {
         };
     },
     created() {
-        fetch('/data/movies.json')
+        fetch('../data/movies.json')
         .then(response => response.json())
         .then(data => {
             this.movies = data;

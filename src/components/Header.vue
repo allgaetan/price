@@ -1,5 +1,13 @@
 <script>
 
+import SearchBar from './SearchBar.vue';
+
+export default {
+    components: {
+        SearchBar 
+    }
+};
+
 </script>
 
 <template>
@@ -17,6 +25,8 @@
         </div>
 
         <img class="logo" alt="Logo" src="@/assets/logo.png" width="125px" height="125px" />
+
+        <SearchBar />
     </header>
     
 </template>
@@ -28,7 +38,7 @@
     float: left;
     min-width: 100%;
     width: 100%;
-    box-shadow: 0 15px 35px black;
+    box-shadow: 0px 0px 35px 20px black;
     margin-bottom: 5rem;
     position: sticky;
     top: 0;
@@ -49,7 +59,6 @@
 nav {
     width: 100%;
     font-size: 24px;
-    text-align: center;
     margin-top: 2rem;
 }
 
@@ -64,7 +73,7 @@ nav a.router-link-exact-active:hover {
 nav a:hover {
     background-color: rgba(255, 255, 255, 0.192);
     border-radius: 5px;
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 }
 
 nav a {
@@ -79,4 +88,6 @@ nav a {
 nav a:first-of-type {
     border: 0;
 }
+
+
 </style>
