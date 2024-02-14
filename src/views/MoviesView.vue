@@ -94,7 +94,7 @@ export default {
         };
     },
     created() {
-        fetch('../public/movies.json')
+        fetch('../src/movies.json')
         .then(response => response.json())
         .then(data => {
             this.movies = data;

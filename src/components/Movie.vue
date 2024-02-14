@@ -25,7 +25,7 @@ export default {
     },
     created() {
         const movieID = this.$route.params.movieID;
-        fetch('../public/movies.json')
+        fetch('../src/movies.json')
         .then(response => response.json())
         .then(data => {
             this.movie = data.find(movie => movie.movieID == movieID);
