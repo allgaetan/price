@@ -7,13 +7,14 @@ import Header from '@/components/Header.vue'
 
 <template>
 
-  <Header></Header>
-  <RouterView v-slot="{ Component, route }">
-    <transition :name="route.meta.transition || 'fade'" mode="out-in">
-      <component :is="Component" />
-    </transition>
-  </RouterView>
-  
+<Header></Header>
+
+<RouterView v-slot="{ Component, route }">
+	<transition :name="route.meta.transition || 'fade'" mode="out-in">
+		<component :is="Component" />
+	</transition>
+</RouterView>
+
 </template>
 
 <style scoped>
