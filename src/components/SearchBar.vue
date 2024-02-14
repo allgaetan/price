@@ -22,13 +22,13 @@
 export default {
 	data() {
 		return {
-			searchTerm: '',
+			searchTerm: "",
 			movies: [],    
 			matchingMovies: [] 
 		};
 	},
     created() {
-        fetch('../data/movies.json')
+        fetch('../public/movies.json')
         .then(response => response.json())
         .then(data => {
             this.movies = data;
@@ -60,7 +60,7 @@ export default {
 <style>
 
 .search-box {
-	position: relative;
+	position: absolute;
 	width: 40%;
 	margin: auto;
 	margin-bottom: 1rem;
