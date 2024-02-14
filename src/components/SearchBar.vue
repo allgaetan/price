@@ -15,9 +15,6 @@
 </template>
 	
 <script>
-// For now, the search is only on movie titles. To add : 
-// Search on every property of the movie
-// Search for themes
 
 export default {
 	data() {
@@ -60,12 +57,10 @@ export default {
 <style>
 
 .search-box {
-	position: absolute;
+	position: relative;
 	width: 40%;
 	margin: auto;
 	margin-bottom: 1rem;
-	border-radius: 20px;
-	overflow: auto;
 	box-shadow: 0px 0px 15px black;
 }
 
@@ -73,7 +68,6 @@ export default {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
-    position: relative;
 	background-color: aliceblue;
 	border: none;
 }
@@ -83,6 +77,7 @@ export default {
 }
 
 .dropdown {
+	position: absolute;
     overflow-y: auto;
     max-height: 500px;
     width: 100%;
@@ -115,4 +110,3 @@ export default {
 }
 
 </style>
-	
