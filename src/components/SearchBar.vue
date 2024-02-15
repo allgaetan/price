@@ -1,8 +1,8 @@
 <template>
 
 <div class="search-box" ref="searchBox">
-    <input type="text" class="search-bar" v-model="searchTerm" @input="updateDropdown" @blur="hideDropdown" @focus="showDropdown" placeholder="Search movies...">
-    <div v-if="isDropdownVisible" class="dropdown" ref="dropdown">
+    <input type="text" class="search-bar" v-model="searchTerm" @input="updateDropdown" @blur="hideDropdown" @focus="showDropdown" placeholder="Entrez un mot-clé, un titre, un thème, ...">
+    <div v-if="isDropdownVisible && searchTerm.length > 0" class="dropdown" ref="dropdown">
         <div class="dropdown-element" v-for="movie in matchingMovies" :key="movie.movieID" @click="selectMovie(movie)">
             <p class="name">{{ movie.title }}</p>
             <p class="type">Film</p>
@@ -64,6 +64,7 @@ export default {
             }, 200); 
         },
 		showDropdown() {
+            console.log(this.searchTerm);
             this.isDropdownVisible = true;
         }
     }

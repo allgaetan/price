@@ -1,15 +1,3 @@
-<script>
-
-import SearchBar from './SearchBar.vue';
-
-export default {
-    components: {
-        SearchBar 
-    }
-};
-
-</script>
-
 <template>
 
     <header class="sticky-header">
@@ -31,7 +19,20 @@ export default {
     
 </template>
 
+<script>
+
+import SearchBar from './SearchBar.vue';
+
+export default {
+    components: {
+        SearchBar 
+    }
+};
+
+</script>
+
 <style>
+
 .sticky-header {
     text-align: center;
     background-color: rgb(41, 41, 41);

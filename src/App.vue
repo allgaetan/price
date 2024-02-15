@@ -1,10 +1,3 @@
-<script setup>
-
-import { RouterLink, RouterView } from 'vue-router'
-import Header from '@/components/Header.vue'
-
-</script>
-
 <template>
 
 <Header></Header>
@@ -16,6 +9,14 @@ import Header from '@/components/Header.vue'
 </RouterView>
 
 </template>
+
+<script setup>
+
+import { RouterLink, RouterView } from 'vue-router'
+import Header from '@/components/Header.vue'
+
+</script>
+
 
 <style scoped>
 .fade-enter-from,

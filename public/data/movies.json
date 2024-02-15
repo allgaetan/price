@@ -90,21 +90,9 @@
 		"date": "",
 		"genre": "",
 		"runtime": "",
-		"poster": "",
-		"plot": "",
-		"commentary": "",
-		"themesID": []
-	},
-	{
-		"movieID": 9,
-		"title": "Mon Combat",
-		"director": "Alhponse Ziggler",
-		"date": "1933",
-		"genre": "Fiction",
-		"runtime": "",
 		"poster": "https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec",
 		"plot": "",
-		"commentary": "sus",
+		"commentary": "",
 		"themesID": []
 	}
 ]

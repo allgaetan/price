@@ -1,24 +1,52 @@
 <template>
 
 <div class="catalogue">
-    <div class="card" v-for="movie in movies" :key="movie.movieID" @click="goToMovie(movie.movieID)">
-        <div class="posters">
-            <img :src="movie.poster" :alt="movie.title">
-        </div>
-        <div class="details">
-            <h2 class="title">{{ movie.title }}</h2>
-            <p class="date">{{ movie.date }}</p>
-            <p class="director">{{ movie.director }}</p>
-            <p class="runtime">{{ movie.runtime }} min</p>
+    <div class="movie-container">
+        <div class="card" v-for="movie in movies" :key="movie.movieID" @click="goToMovie(movie.movieID)">
+            <div class="posters">
+                <img :src="movie.poster" :alt="movie.title">
+            </div>
+            <div class="details">
+                <h2 class="title">{{ movie.title }}</h2>
+                <p class="date">{{ movie.date }}</p>
+                <p class="director">{{ movie.director }}</p>
+                <p class="runtime">{{ movie.runtime }} min</p>
+            </div>
         </div>
     </div>
 </div>
 
 </template>
 
+<script>
+
+export default {
+    data() {
+        return {
+            movies: [], 
+        };
+    },
+    created() {
+        fetch('/data/movies.json')
+        .then(response => response.json())
+        .then(data => {
+            this.movies = data;
+        });
+    },
+    methods: {
+        goToMovie(movieID) {
+            this.$router.push({ name: 'Movie', params: { movieID } });
+        },
+    },
+};
+
+</script>
 
 <style>
 
+.movie-container {
+    text-align: left; 
+}
 .card {
     position: relative;
     width: 240px;
@@ -82,31 +110,6 @@
 }
 
 </style>
-
-
-<script>
-
-export default {
-    data() {
-        return {
-            movies: [], 
-        };
-    },
-    created() {
-        fetch('/data/movies.json')
-        .then(response => response.json())
-        .then(data => {
-            this.movies = data;
-        });
-    },
-    methods: {
-        goToMovie(movieID) {
-            this.$router.push({ name: 'Movie', params: { movieID } });
-        },
-    },
-};
-
-</script>
 
 
   
