@@ -11,7 +11,7 @@ import Header from '@/components/Header.vue'
 
 <RouterView v-slot="{ Component, route }">
 	<transition :name="route.meta.transition || 'fade'" mode="out-in">
-		<component :is="Component" />
+		<component :key="$route.fullPath" :is="Component" />
 	</transition>
 </RouterView>
 

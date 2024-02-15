@@ -6,7 +6,7 @@
 		"date": "",
 		"genre": "",
 		"runtime": "",
-		"poster": "",
+		"poster": "https://m.media-amazon.com/images/I/81Bd9H3HP1L._AC_UF1000,1000_QL80_.jpg",
 		"plot": "",
 		"commentary": "",
 		"themesID": []
@@ -97,24 +97,12 @@
 	},
 	{
 		"movieID": 9,
-		"title": "Marc Dorcel le biopic (nan je rigole ca existe pas)",
-		"director": "",
-		"date": "",
-		"genre": "",
-		"runtime": "",
-		"poster": "",
-		"plot": "",
-		"commentary": "enfin je crois",
-		"themesID": []
-	},
-	{
-		"movieID": 10,
 		"title": "Mon Combat",
 		"director": "Alhponse Ziggler",
 		"date": "1933",
 		"genre": "Fiction",
 		"runtime": "",
-		"poster": "",
+		"poster": "https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec",
 		"plot": "",
 		"commentary": "sus",
 		"themesID": []

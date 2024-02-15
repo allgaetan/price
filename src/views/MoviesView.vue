@@ -56,7 +56,6 @@
     transition: 0.5s;
 }
 .card:hover .posters img {
-    transform: translateY(-50px);
     filter: blur(5px);
 }
 .card .details {
