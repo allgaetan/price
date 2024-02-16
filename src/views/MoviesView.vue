@@ -49,7 +49,7 @@ export default {
 }
 .card {
     position: relative;
-    width: 240px;
+    width: 220px;
     height: 330px;
     background-color: aliceblue;
     border-radius: 10px;
@@ -79,8 +79,8 @@ export default {
     bottom: 0px;
 }
 .card .posters img {
-    max-width: 240px;
-    min-height: 330px;
+    width: 220px;
+    height: 330px;
     transition: 0.5s;
 }
 .card:hover .posters img {
