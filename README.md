@@ -1,6 +1,8 @@
-# vue-project
+# Projet Price : Plateforme Mines'Ramax
 
-This template should help get you started developing with Vue 3 in Vite.
+Platform hosted with Netlify : [Mines'Ramax](https://minesramax.netlify.app/).
+
+See [Netlify build configuration](/public/netlify.toml).
 
 ## Recommended IDE Setup
 
@@ -27,4 +29,4 @@ npm run dev
 ```sh
 npm run build
 ```
-# price
+
