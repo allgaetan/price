@@ -1,7 +1,7 @@
 <template>
 
 <div>
-    <img class="poster" :src="movie.poster" :alt="movie.title">
+    <img class="poster" :src="movie.poster" :alt="movie.title" onerror="this.src='/src/assets/logo.jpeg'">
     <h2>{{ movie.title }}</h2>
     <p>{{ movie.director }}</p>
     <p>{{ movie.date }}</p>
@@ -32,6 +32,7 @@ export default {
         });
     },
 };
+
 </script>
 
 <style>

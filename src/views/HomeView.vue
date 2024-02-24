@@ -1,18 +1,29 @@
+<template>
+
+<div class="home">
+
+    <Carousel></Carousel>
+
+</div>
+
+</template>
+
 <script setup>
+
+import Carousel from '@/components/Carousel.vue'
+
 
 </script>
 
-
-<template>
-    <div class="home">
-        <h1>Page d'acceuil</h1>
-        <div>
-            <p>Test</p>
-        </div>
-    </div>
-</template>
-
-
 <style>
+
+Carousel {
+    margin: 0;
+}
+.home {
+    height: 100vh;
+}
+
+
 
 </style>

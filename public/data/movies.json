@@ -22,6 +22,29 @@
 		"plot": "",
 		"commentary": "",
 		"themesID": []
+	},
+	{
+		"movieID": 3,
+		"title": "1984",
+		"director": "Test",
+		"date": "Test",
+		"genre": "Test",
+		"runtime": "Test",
+		"poster": "",
+		"plot": "",
+		"commentary": "",
+		"themesID": []
+	},
+	{
+		"movieID": 4,
+		"title": "!Enorme",
+		"director": "Test",
+		"date": "Test",
+		"genre": "Test",
+		"runtime": "Test",
+		"poster": "",
+		"plot": "",
+		"commentary": "",
+		"themesID": []
 	}
-
 ]

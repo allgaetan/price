@@ -40,7 +40,6 @@ export default {
     min-width: 100%;
     width: 100%;
     box-shadow: 0px 0px 35px 20px black;
-    margin-bottom: 5rem;
     position: sticky;
     top: 0;
     z-index: 100;

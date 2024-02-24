@@ -1,0 +1,13 @@
+Acceuil :
+Grande image film qui défile
+Bandeaux de thèmes aleatoires
+
+Thèmes :
+Cases par thèmes 
+
+Catalogue :
+Mettre les div sur la meme ligne
+Barre de lettres sur la droite ?
+
+Contact :
+Form vers adresse mail minesramax

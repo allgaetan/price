@@ -1,20 +1,32 @@
 <template>
 
 <div class="catalogue">
-    <div class="movie-container">
-        <div class="card" v-for="movie in movies" :key="movie.movieID" @click="goToMovie(movie.movieID)">
-            <div class="posters">
-                <img :src="movie.poster" :alt="movie.title">
-            </div>
-            <div class="details">
-                <h2 class="title">{{ movie.title }}</h2>
-                <p class="date">{{ movie.date }}</p>
-                <p class="director">{{ movie.director }}</p>
-                <p class="runtime">{{ movie.runtime }} min</p>
+    <div class="alphabetical-lines" v-for="letter in alphabet" :key="letter">
+        <div class="letter-in-movies-first-letter" v-if="moviesFirstLetter.includes(letter)" :key="moviesFirstLetter">
+            <h1 class="letter">{{ letter }}</h1>
+            <div class="movies-container">
+                <div v-for="movie in filteredMoviesByLetter(letter)" :key="movie.movieID">
+                    <div class="movie-starts-with-letter">
+                        <div class="movie-container">
+                            <div class="card" @click="goToMovie(movie.movieID)">
+                                <div class="posters">
+                                    <img :src="movie.poster" :alt="movie.title" onerror="this.src='/src/assets/logo.jpeg'">
+                                </div>
+                                <div class="details">
+                                    <h2 class="title">{{ movie.title }}</h2>
+                                    <p class="date">{{ movie.date }}</p>
+                                    <p class="director">{{ movie.director }}</p>
+                                    <p class="runtime">{{ movie.runtime }} min</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 </template>
 
@@ -24,16 +36,38 @@ export default {
     data() {
         return {
             movies: [], 
+            alphabet: ["#","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z"],
         };
+    },
+    computed: {
+        moviesFirstLetter() {
+            return this.movies.map(movie => {
+                if (movie.title[0].match(/[a-z]/i)) {
+                    return movie.title[0].toUpperCase();
+                } else {
+                    return "#";
+                }
+            });
+        },
     },
     created() {
         fetch('/data/movies.json')
         .then(response => response.json())
         .then(data => {
             this.movies = data;
-        });
+        }); 
     },
     methods: {
+        filteredMoviesByLetter(letter) {
+            return this.movies.filter(movie => {
+                const firstLetter = movie.title[0].toUpperCase();
+                if (firstLetter.match(/[a-z]/i)) {
+                    return firstLetter == letter;
+                } else {
+                    return "#" == letter;
+                } 
+            });
+        },
         goToMovie(movieID) {
             this.$router.push({ name: 'Movie', params: { movieID } });
         },
@@ -44,9 +78,21 @@ export default {
 
 <style>
 
+.catalogue {
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+.movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
 .movie-container {
     text-align: left; 
 }
+
 .card {
     position: relative;
     width: 220px;
@@ -58,13 +104,16 @@ export default {
     display: inline-block;
     margin: 1rem;
 }
+
 .card:hover {
     cursor: pointer;
 }
+
 .card .posters {
     position: relative;
     overflow: hidden;
 }
+
 .card .posters::before {
     content: '';
     position: absolute;
@@ -75,17 +124,21 @@ export default {
     transition: 0.5s;
     z-index: 1;
 }
+
 .card:hover .posters::before {
     bottom: 0px;
 }
+
 .card .posters img {
     width: 220px;
     height: 330px;
     transition: 0.5s;
 }
+
 .card:hover .posters img {
     filter: blur(5px);
 }
+
 .card .details {
     position: absolute;
     width: 100%;
@@ -95,18 +148,17 @@ export default {
     z-index: 2;
     transition: 0.5s;
 }
+
 .card:hover .details {
     bottom: 50px;
 }
+
 .card .details .title {
     max-width: 180px;
 }
 
-.catalogue {
-    text-align: center;
-}
-.catalogue .card {
-    text-align: left;
+.letter {
+    margin-left: 1rem;
 }
 
 </style>
