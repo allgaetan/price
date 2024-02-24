@@ -10,7 +10,7 @@
                         <div class="movie-container">
                             <div class="card" @click="goToMovie(movie.movieID)">
                                 <div class="posters">
-                                    <img :src="movie.poster" :alt="movie.title" onerror="this.src='/src/assets/logo.jpeg'">
+                                    <img :src="movie.poster" :alt="movie.title">
                                 </div>
                                 <div class="details">
                                     <h2 class="title">{{ movie.title }}</h2>

@@ -1,7 +1,7 @@
 <template>
 
 <div>
-    <img class="poster" :src="movie.poster" :alt="movie.title" onerror="this.src='/src/assets/logo.jpeg'">
+    <img class="poster" :src="movie.poster" :alt="movie.title">
     <h2>{{ movie.title }}</h2>
     <p>{{ movie.director }}</p>
     <p>{{ movie.date }}</p>

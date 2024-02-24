@@ -20,7 +20,7 @@
     >
 
         <swiper-slide v-for="movie in movies">
-            <img :src="movie.poster" :alt="movie.title" onerror="this.src='/src/assets/logo.jpeg'">
+            <img :src="movie.poster" :alt="movie.title">
         </swiper-slide>
 
         <template #container-end>
