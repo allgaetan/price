@@ -12,7 +12,7 @@
             </nav>
         </div>
 
-        <img class="logo" alt="Logo" src="@/assets/logo.png" width="125px" height="125px" />
+        <img class="logo" alt="Logo" src="/public/logo.png" width="125px" height="125px" />
 
         <SearchBar />
     </header>
