@@ -3,12 +3,12 @@
         "themeID":1,
         "name":"a",
         "description":"a",
-        "moviesID": []
+        "moviesID":[]
     },
     {
         "themeID":2,
         "name":"b",
         "description":"b",
-        "moviesID": []
+        "moviesID":[]
     }
 ]

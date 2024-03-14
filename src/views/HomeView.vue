@@ -3,6 +3,7 @@
 <div class="home">
 
     <Carousel></Carousel>
+    
 
 </div>
 
@@ -11,7 +12,7 @@
 <script setup>
 
 import Carousel from '@/components/Carousel.vue'
-
+import Header from '@/components/Header.vue'
 
 </script>
 
