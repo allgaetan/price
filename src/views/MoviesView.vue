@@ -8,11 +8,11 @@
                 <div v-for="movie in filteredMoviesByLetter(letter)" :key="movie.movieID">
                     <div class="movie-starts-with-letter">
                         <div class="movie-container">
-                            <div class="card" @click="goToMovie(movie.movieID)">
+                            <div class="movie-card" @click="goToMovie(movie.movieID)">
                                 <div class="posters">
                                     <img :src="movie.poster" :alt="movie.title">
                                 </div>
-                                <div class="details">
+                                <div class="movie-details">
                                     <h2 class="title">{{ movie.title }}</h2>
                                     <p class="date">{{ movie.date }}</p>
                                     <p class="director">{{ movie.director }}</p>
@@ -51,7 +51,7 @@ export default {
         },
     },
     created() {
-        fetch('/data/movies.json')
+        fetch("/data/movies.json")
         .then(response => response.json())
         .then(data => {
             this.movies = data;
@@ -93,7 +93,7 @@ export default {
     text-align: left; 
 }
 
-.card {
+.movie-card {
     position: relative;
     width: 220px;
     height: 330px;
@@ -105,41 +105,41 @@ export default {
     margin: 1rem;
 }
 
-.card:hover {
+.movie-card:hover {
     cursor: pointer;
 }
 
-.card .posters {
+.movie-card .posters {
     position: relative;
     overflow: hidden;
 }
 
-.card .posters::before {
+.movie-card .posters::before {
     content: '';
     position: absolute;
     bottom: -180px;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, #000000b2 70%, transparent);
+    background: linear-gradient(0deg, #000000d8 80%, transparent);
     transition: 0.5s;
     z-index: 1;
 }
 
-.card:hover .posters::before {
+.movie-card:hover .posters::before {
     bottom: 0px;
 }
 
-.card .posters img {
+.movie-card .posters img {
     width: 220px;
     height: 330px;
     transition: 0.5s;
 }
 
-.card:hover .posters img {
+.movie-card:hover .posters img {
     filter: blur(5px);
 }
 
-.card .details {
+.movie-card .movie-details {
     position: absolute;
     width: 100%;
     bottom: -57px;
@@ -149,11 +149,11 @@ export default {
     transition: 0.5s;
 }
 
-.card:hover .details {
+.movie-card:hover .movie-details {
     bottom: 50px;
 }
 
-.card .details .title {
+.movie-card .movie-details .title {
     max-width: 180px;
 }
 

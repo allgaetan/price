@@ -8,6 +8,11 @@
             <p class="type">Film</p>
             <div style="clear: both;"></div>
         </div>
+        <div class="dropdown-element" v-for="theme in matchingThemes" :key="theme.themeID" @click="selectTheme(theme)">
+            <p class="name">{{ theme.name }}</p>
+            <p class="type">Thème</p>
+            <div style="clear: both;"></div>
+        </div>
     </div>
 </div>
 
@@ -20,7 +25,9 @@ export default {
         return {
             searchTerm: "",
             movies: [],
+            themes: [],
             matchingMovies: [],
+            matchingThemes: [],
             isDropdownVisible: false
         };
     },
@@ -30,6 +37,11 @@ export default {
             .then(data => {
                 this.movies = data;
             });
+        fetch('/data/themes.json')
+            .then(response => response.json())
+            .then(data => {
+                this.themes = data;
+            });       
         document.addEventListener('click', this.handleClickOutside);
     },
     destroyed() {
@@ -42,9 +54,13 @@ export default {
                 this.matchingMovies = this.movies.filter(movie =>
                     movie.title.toLowerCase().includes(searchTerm)
                 );
+                this.matchingThemes = this.themes.filter(theme =>
+                    theme.name.toLowerCase().includes(searchTerm)
+                );
                 this.isDropdownVisible = true;
             } else {
                 this.matchingMovies = []; 
+                this.matchingThemes = [];
                 this.isDropdownVisible = false;
             }
         },
@@ -58,13 +74,17 @@ export default {
             this.$router.push({ name: 'Movie', params: { movieID: movie.movieID } });
             this.isDropdownVisible = false;
         },
+        selectTheme(theme) {
+            this.searchTerm = ""; 
+            this.$router.push({ name: 'Theme', params: { themeID: theme.themeID } });
+            this.isDropdownVisible = false;
+        },
         hideDropdown() {
             setTimeout(() => {
                 this.isDropdownVisible = false;
             }, 200); 
         },
 		showDropdown() {
-            console.log(this.searchTerm);
             this.isDropdownVisible = true;
         }
     }

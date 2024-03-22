@@ -9,9 +9,6 @@
             delay: 3000,
             disableOnInteraction: false,
         }"
-        :pagination="{
-            clickable: true,
-        }"
         :navigation="true"
         :modules="modules"
         :loop="true"
@@ -19,8 +16,21 @@
         class="mySwiper"
     >
 
-        <swiper-slide v-for="movie in movies">
-            <img :src="movie.poster" :alt="movie.title">
+        <swiper-slide v-for="movie in movies" @click="goToMovie(movie.movieID)">
+            <div class="slide-container">
+                <div class="left-side">
+                    <div class="text-container">
+                        <h2>{{ movie.title }}</h2>
+                        <p>{{ movie.director }}</p>
+                        <p>{{ movie.date }}</p>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <img class="main-image" :src="movie.poster" :alt="movie.title">
+                </div>            
+            </div>
+            
+            <img class="background-image" :src="movie.poster" :alt="movie.title">
         </swiper-slide>
 
         <template #container-end>
@@ -45,7 +55,6 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
 import 'swiper/css/autoplay';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -66,7 +75,7 @@ export default {
             onAutoplayTimeLeft,
             progressCircle,
             progressContent,
-            modules: [Autoplay, Pagination, Navigation],
+            modules: [Autoplay, Navigation],
         };       
     },
     data() {
@@ -97,7 +106,10 @@ export default {
                 new Swiper('.mySwiper');
             });
         },
-    },
+        goToMovie(movieID) {
+            this.$router.push({ name: 'Movie', params: { movieID } });
+        },
+    },        
 };
 
 
@@ -122,7 +134,7 @@ export default {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: rgb(200, 26, 26);
+    color: rgb(255, 255, 255);
 }
 
 .autoplay-progress svg {
@@ -134,7 +146,7 @@ export default {
     width: 100%;
     height: 100%;
     stroke-width: 4px;
-    stroke: rgb(200, 26, 26);
+    stroke: rgb(255, 255, 255);
     fill: rgb(41, 41, 41);
     stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
     stroke-dasharray: 125.6;
@@ -148,27 +160,59 @@ export default {
 .swiper {
     width: 100%;
     height: 100%;
-    --swiper-navigation-color: rgb(200, 26, 26);
-    --swiper-pagination-bullet-opacity: 1;
-    --swiper-pagination-color: rgb(200, 26, 26);
-    --swiper-pagination-bullet-inactive-opacity: 0.2;
-    --swiper-pagination-bullet-inactive-color: rgb(0, 0, 0);
+    --swiper-navigation-color: rgb(255, 255, 255);
 }
 
 .swiper-slide {
     color: rgb(0, 0, 0);
     text-align: center;
     font-size: 18px;
-    background: #808080;
-
+    background: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-.swiper-slide img {
-    width: 220px;
-    height: 330px;
+.slide-container {
+    width: 100%;
+    z-index: 10;
+    display: flex;
+}
+
+.right-side {
+    width: 50%;
+    height: 200px; 
+    display: flex; 
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-side {
+    width: 50%;
+    height: 200px; 
+    display: flex;
+    box-sizing: border-box;
+    color: aliceblue;
+    font-size: x-large;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image {
+    width: 308px;
+    height: 462px;
+}
+
+.background-image {
+    position: absolute;
+    width: 100%;
+    filter: blur(20px) brightness(30%);
+}
+
+.text-container {
+    margin: 10px;
 }
 
 </style>

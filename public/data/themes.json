@@ -1,14 +1,30 @@
 [
     {
-        "themeID":1,
-        "name":"a",
-        "description":"a",
-        "moviesID":[]
+        "themeID": 1,
+        "name": "Thème 1",
+        "description": "aazuyagfrzeafvzafezaaaaaaaaaavaufzabf fyzguagfiza gyzfgafzia fzèyagifzgayfi fghzaifzuafguzai",
+        "level": "Lycée",
+        "moviesID": [1,12,15,20]
     },
     {
-        "themeID":2,
-        "name":"b",
-        "description":"b",
-        "moviesID":[]
+        "themeID": 2,
+        "name": "Autre thème",
+        "description": "a",
+        "level": "Lycée",
+        "moviesID": [5,7,28]
+    },
+    {
+        "themeID": 3,
+        "name": "Thème 2",
+        "description": "b",
+        "level": "Prépa",
+        "moviesID":[2,3,8,17,20]
+    },
+    {
+        "themeID": 4,
+        "name": "Thème 3",
+        "description": "b",
+        "level": "Université",
+        "moviesID":[4,28]
     }
 ]

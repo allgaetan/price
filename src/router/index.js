@@ -3,7 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import ThemesView from '../views/ThemesView.vue'
 import MoviesView from '../views/MoviesView.vue'
 import ContactView from '../views/ContactView.vue'
-import Movie from '../components/Movie.vue';
+import Movie from '../components/Movie.vue'
+import Theme from '../components/Theme.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +37,13 @@ const router = createRouter({
       path: '/movie/:movieID',
       name: 'Movie',
       component: Movie,
+      props: true,
+      meta: { transition: 'slide' }
+    },
+    {
+      path: '/theme/:themeID',
+      name: 'Theme',
+      component: Theme,
       props: true,
       meta: { transition: 'slide' }
     }
