@@ -6,7 +6,7 @@
         :spaceBetween="0"
         :centeredSlides="true"
         :autoplay="{
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: false,
         }"
         :navigation="true"
@@ -16,17 +16,17 @@
         class="mySwiper"
     >
 
-        <swiper-slide v-for="movie in movies" @click="goToMovie(movie.movieID)">
+        <swiper-slide v-for="movie in movies">
             <div class="slide-container">
                 <div class="left-side">
-                    <div class="text-container">
+                    <div class="text-container" @click="goToMovie(movie.movieID)">
                         <h2>{{ movie.title }}</h2>
                         <p>{{ movie.director }}</p>
                         <p>{{ movie.date }}</p>
                     </div>
                 </div>
                 <div class="right-side">
-                    <img class="main-image" :src="movie.poster" :alt="movie.title">
+                    <img class="main-image" :src="movie.poster" :alt="movie.title" @click="goToMovie(movie.movieID)">
                 </div>            
             </div>
             
@@ -171,7 +171,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 .slide-container {
@@ -203,16 +202,28 @@ export default {
 .main-image {
     width: 308px;
     height: 462px;
+    box-shadow: 0 0px 35px black;
+    transition: all 0.3s ease-in-out;
+}
+.main-image:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .background-image {
     position: absolute;
     width: 100%;
-    filter: blur(20px) brightness(30%);
+    filter: blur(20px) brightness(20%);
 }
 
 .text-container {
+    transition: all 0.3s ease-in-out;
     margin: 10px;
+}
+.text-container:hover {
+    cursor: pointer;
+    
+    transform: scale(1.05);
 }
 
 </style>
