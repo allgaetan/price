@@ -8,6 +8,15 @@
   </head>
   <body>
     <div id="app"></div>
+
+    <!-- Hidden Form for Netlify -->
+    <form name="contact" netlify hidden>
+       <input type="text" name="name" placeholder="Your Name" required>
+       <input type="email" name="email" placeholder="Your Email" required>
+       <textarea name="message" placeholder="Your Message" required></textarea>
+       <button type="submit">Submit</button>
+    </form>
+
     <script type="module" src="/src/main.js"></script>
     <link rel="stylesheet" href="./src/assets/main.css">
   </body>
