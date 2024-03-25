@@ -37,9 +37,7 @@
         <div class="bouton">
             <button type="submit">Envoyer le message</button>
         </div>
-        
     </form>
-    
 </div>
 
 </template>
