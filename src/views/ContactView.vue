@@ -7,6 +7,7 @@
 
 <div class="contact">
     <form name="Contact form" method="POST" netlify>
+    <input type="hidden" name="form-name" value="Contact form" />
         <h2>Contactez-nous</h2>
         <div class="formulaire">
             <div class="gauche">
@@ -35,7 +36,7 @@
         </div>
 
         <div class="bouton">
-            <button type="submit" value="Submit">Envoyer le message</button>
+            <button type="submit">Envoyer le message</button>
         </div>
         
     </form>
