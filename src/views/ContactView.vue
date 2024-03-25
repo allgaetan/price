@@ -6,7 +6,7 @@
 <template>
 
 <div class="contact">
-    <form name="Contact form" method="POST" data-netlify="true">
+    <form name="Contact form" method="POST" netlify>
         <h2>Contactez-nous</h2>
         <div class="formulaire">
             <div class="gauche">
