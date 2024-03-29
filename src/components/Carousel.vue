@@ -13,8 +13,7 @@
         :modules="modules"
         :loop="true"
         @autoplayTimeLeft="onAutoplayTimeLeft"
-        class="mySwiper"
-    >
+        class="mySwiper">
 
         <swiper-slide v-for="movie in movies">
             <div class="slide-container">
@@ -43,7 +42,7 @@
         </template>
     </swiper>
 </div>
-<div v-else>Loading...</div>
+<div v-else>Loading ...</div>
 
 </template>
 

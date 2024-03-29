@@ -1,7 +1,7 @@
 <template>
 
 <div class="theme-details">
-
+    <h2>AAAAAAAAAAA</h2>
 </div>
 
 </template>

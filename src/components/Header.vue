@@ -1,21 +1,18 @@
 <template>
 
-    <header class="sticky-header">
-        <div class="wrapper">
-            <h1 style="margin-top: 1rem;">Mines'Ramax</h1>
-
-            <nav>
-                <RouterLink to="/">Acceuil</RouterLink>
-                <RouterLink to="/themes">Thèmes</RouterLink>
-                <RouterLink to="/catalogue">Catalogue</RouterLink>
-                <RouterLink to="/contact">Contact</RouterLink>
-            </nav>
-        </div>
-
-        <img class="logo" alt="Logo" src="/public/logo.png" width="125px" height="125px" />
-
-        <SearchBar />
-    </header>
+<header class="sticky-header">
+    <div class="wrapper">
+        <h1 style="margin-top: 1rem;">Mines'Ramax</h1>
+        <nav>
+            <RouterLink to="/">Acceuil</RouterLink>
+            <RouterLink to="/themes">Thèmes</RouterLink>
+            <RouterLink to="/catalogue">Catalogue</RouterLink>
+            <RouterLink to="/contact">Contact</RouterLink>
+        </nav>
+    </div>
+    <img class="logo" alt="Logo" src="/public/logo.png" width="125px" height="125px" />
+    <SearchBar />
+</header>
     
 </template>
 
