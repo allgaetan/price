@@ -4,17 +4,22 @@
     <div class="props-left-side">
         <div class="details-container">
             <h2>Titre : {{ movie.title }}</h2><br>
-            <p>Réalisateur : {{ movie.director }}</p>
-            <p>Date de sortie : {{ movie.date }}</p><br>
-            <p>Genre(s) : {{ movie.genre }}</p>
-            <p>Durée : {{ movie.runtime }} min</p><br>
-            <p>Résumé : {{ movie.plot }}</p><br><br>
-            <p>Commentaire : {{ movie.commentary }}</p><br><br>
-            <p>Thèmes associés : {{ movie.themesID }}</p>
+            <p><b>Réalisateur :</b> {{ movie.director }}</p>
+            <p><b>Date de sortie :</b> {{ movie.date }}</p><br>
+            <p><b>Genre(s) :</b> {{ movie.genre }}</p>
+            <p><b>Durée :</b> {{ movie.runtime }} min</p><br>
+            <p><b>Résumé :</b> {{ movie.plot }}</p><br><br>
+            <p><b>Commentaire :</b> {{ movie.commentary }}</p><br><br>
         </div>
     </div>
     <div class="props-right-side">
-        <img class="poster" :src="movie.poster" :alt="movie.title">
+        <div class="details-container">
+            <img class="poster" :src="movie.poster" :alt="movie.title">
+            <br><br><b>Thèmes associés : </b>
+            <div v-for="themeID in movie.themesID" :key="themeID">
+                <p>{{ getThemeName(themeID) }}</p>
+            </div>
+        </div>
     </div>  
 </div>
 
@@ -27,6 +32,7 @@ export default {
     data() {
         return {
             movie: null,
+            themes: [],
         };
     },
     created() {
@@ -36,7 +42,18 @@ export default {
         .then(data => {
             this.movie = data.find(movie => movie.movieID == movieID);
         });
+        fetch('/data/themes.json')
+        .then(response => response.json())
+        .then(data => {
+            this.themes = data;
+        });
     },
+    methods: {
+        getThemeName(themeID) {
+            const theme = this.themes.find(theme => theme.themeID == themeID);
+            return theme ? theme.name : 'Unknown Theme';
+        }
+    }
 };
 
 </script>
@@ -51,8 +68,11 @@ export default {
 
 .props-right-side {
     width: 50%;
-    display: flex; 
+    display: flex;
     box-sizing: border-box;
+    color: aliceblue;
+    font-size: larger;
+    align-items: top;
     justify-content: center;
 }
 
