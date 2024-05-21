@@ -7,10 +7,7 @@
             <div v-for="theme in filteredMoviesByLevel(level)" :key="theme.themeID">
                 <div class="theme-container">
                     <div class="theme-card" @click="goToTheme(theme.themeID)">
-                        <div class="theme-details">
-                            <h2 class="name">{{ theme.name }}</h2>
-                            <p class="description">{{  }}</p>
-                        </div>
+                        <h2 class="name">{{ theme.name }}</h2>
                     </div>
                 </div>
             </div>
@@ -70,30 +67,21 @@ export default {
 .theme-card {
     position: relative;
     width: 220px;
-    height: 220px;
     border-radius: 10px;
-    box-shadow: 0 15px 35px black;
+    box-shadow: 0 10px 35px black;
     overflow: hidden;
     display: inline-block;
     margin: 1rem;
+    text-align: center;
 }
 
 .theme-card:hover {
     cursor: pointer;
 }
 
-.theme-details .name {
+.theme-card .name {
     color: rgb(255, 255, 255);
     width: 100%;
-    margin: 1rem;
-    display: block;
-}
-
-.theme-details .description {
-    color: rgb(255, 255, 255);
-    width: 100%;
-    margin-left: 1rem;
-    display: block;
 }
 
 .level {
